@@ -1,0 +1,23 @@
+{
+  "name": "uiautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test", 
+    "report": "npx playwright show-report",
+    "codecheck": "prettier -l ./**/*.{js,json} && eslint .",
+    "codefix": "prettier --write ./**/*.{js,json} && eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.32.1",
+    "@playwright/test": "^1.32.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "prettier": "^2.8.4"
+  }
+}
