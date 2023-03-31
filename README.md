@@ -17,6 +17,12 @@ npm init playwright@latest
 ```
 To get some help from official documentation of playwright in order to install it, please visit https://playwright.dev/docs/intro
 
+## Choose your favorite IDE
+
+Open it on your favorite IDE, my personal suggestion is Visual Code studio. You can download it from the following URLs respectively.
+
+https://code.visualstudio.com/download
+
 ## Getting Started
 
 Following instructions will help you running the project. First of all, checkout/clone this project from master branch on your local machine.
