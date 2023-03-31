@@ -29,24 +29,24 @@ test.describe("lieferando test suite", () => {
     await expect(page.locator(listingpage.radioButton10EuroOrLess)).toBeChecked();
 
     //Gets the selected radio button text for assertion purpose
-    const radio_button_text = await page.locator(listingpage.radioButton10EuroOrLess).textContent();
+    const radioButtonText = await page.locator(listingpage.radioButton10EuroOrLess).textContent();
 
     // Get number for restaurants that are available on UI of Radio Button after its clicked
-    const number_of_restaurants = await general.getNumberOfRestaurantsDisplayedOnUI(radio_button_text);
+    const numberOfRestaurants = await general.getNumberOfRestaurantsDisplayedOnUI(radioButtonText);
 
     // Keep scrolling to bottom of page until no more content is loaded
     await general.scrollToBottom(page);
 
     // Gets the array list of all the restaurants having minimum order of 10.00 Euros
-    const restaurant_list = await page.locator(listingpage.listOfRestaurants).allTextContents();
+    const restaurantList = await page.locator(listingpage.listOfRestaurants).allTextContents();
 
     // List of restaurants
-    console.log(restaurant_list);
+    console.log(restaurantList);
 
     // Asserting the number of restaurants being displayed on UI are same
     // as number of rastaurants displayed on the radio buttion under ()
     console.log("Verify number of restaurants on UI are equal number mentioned on Radio button paranthesis()")
-    expect(restaurant_list.length).toEqual(parseInt(number_of_restaurants, 10));
+    expect(restaurantList.length).toEqual(parseInt(numberOfRestaurants, 10));
 
   });
 
@@ -83,15 +83,18 @@ test.describe("lieferando test suite", () => {
     await general.scrollToBottom(page);
 
     // Gets the array list of all the restaurants selected by italian restaurant category
-    const restaurant_list = await page.locator(listingpage.listOfRestaurants).allTextContents();
+    const restaurantList = await page.locator(listingpage.listOfRestaurants).allTextContents();
 
     // List of restaurants
-    console.log(restaurant_list);
+    console.log(restaurantList);
 
     // Asserting the number of restaurants being displayed on UI are same
     // as number of rastaurants displayed after clicking Italian category button
     console.log("Verify number of restaurants on UI are equal to restaurant count after clicking Italian category")
-    expect(restaurant_list.length).toEqual(numberOfRestaurantsAfterClick);
+    expect(restaurantList.length).toEqual(numberOfRestaurantsAfterClick);
+
+    //Assert page title contains Italian delivery & Takeaway after selecting Italian resturant category
+    expect(await page.title()).toContain('Italian delivery & takeaway');
 
   });
 
